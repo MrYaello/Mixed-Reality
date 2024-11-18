@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5272350648311338068
+  m_GuidHigh: 7555733129982843573
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5648439400414245728
+      m_GuidHigh: 15976684896203819192
+    m_SerializedTextureGuid:
+      m_GuidLow: 2293656126090565213
+      m_GuidHigh: 11392858259562451529
+    m_Size: {x: 0.15, y: 0.15}
+    m_SpecifySize: 1
+    m_Name: arco
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4997203802879042321
+      m_GuidHigh: 11639757019292704906
+    m_SerializedTextureGuid:
+      m_GuidLow: 17200647127702300786
+      m_GuidHigh: 16647201483031547144
+    m_Size: {x: 0.15, y: 0.15}
+    m_SpecifySize: 1
+    m_Name: meta
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4687764398087862489
+      m_GuidHigh: 15755271021868095628
+    m_SerializedTextureGuid:
+      m_GuidLow: 14957716495901633744
+      m_GuidHigh: 16202741001810530218
+    m_Size: {x: 0.18900001, y: 0.15}
+    m_SpecifySize: 1
+    m_Name: objetoRandom
+    m_Texture: {fileID: 0}
