@@ -6,6 +6,7 @@ public class Semaforo : MonoBehaviour
     public GameObject rojo;
     public GameObject amarillo;
     public GameObject verde;
+    public GameObject button;
     public GameManager gameManager;
 
     public void IniciarCuentaAtras()
@@ -15,6 +16,7 @@ public class Semaforo : MonoBehaviour
 
     private IEnumerator CuentaAtras()
     {
+        button.SetActive(false);
         rojo.SetActive(true);
         amarillo.SetActive(false);
         verde.SetActive(false);
