@@ -8,8 +8,13 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
+<<<<<<< HEAD
   defaultScreenOrientation: 2
   targetDevice: 0
+=======
+  defaultScreenOrientation: 3
+  targetDevice: 2
+>>>>>>> b5d0c20 (Client)
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Mitikibios

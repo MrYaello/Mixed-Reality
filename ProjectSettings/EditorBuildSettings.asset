@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PruebaiPhone.unity
     guid: 2d48312a8be34456c95ec4a686922d12
+  - enabled: 0
+    path: Assets/Scenes/Client.unity
+    guid: 8d57a0995d8415b4a9ab3dd01859943a
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

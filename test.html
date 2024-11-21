@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Control Carrito ESP32</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    button { font-size: 20px; padding: 10px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Control del Carrito</h1>
+  <button onclick="sendCommand('forward')">Adelante</button>
+  <button onclick="sendCommand('backward')">Atrás</button>
+  <button onclick="sendCommand('left')">Izquierda</button>
+  <button onclick="sendCommand('right')">Derecha</button>
+  <button onclick="sendCommand('stop')">Detener</button>
+  <button onclick="sendCommand('speed:255')">Turbo</button>
+  <button onclick="sendCommand('speed:200')">Normal</button>
+  <button onclick="sendCommand('speed:150')">Lento</button>
+
+  <script>
+    let ip = prompt("IP del ESP32", "192.168.1.83");
+    const socket = new WebSocket(`ws://${ip}:81`); 
+
+    socket.onopen = () => {
+      console.log("Conectado al WebSocket");
+    };
+
+    socket.onmessage = (event) => {
+      console.log("Mensaje del ESP32:", event.data);
+    };
+
+    function sendCommand(command) {
+      if (socket.readyState === WebSocket.OPEN) {
+        socket.send(command);
+      }
+    }
+  </script>
+</body>
+</html>
