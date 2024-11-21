@@ -18,32 +18,12 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5648439400414245728
-      m_GuidHigh: 15976684896203819192
+      m_GuidLow: 5731090988093352241
+      m_GuidHigh: 15253591810777911218
     m_SerializedTextureGuid:
-      m_GuidLow: 2293656126090565213
-      m_GuidHigh: 11392858259562451529
+      m_GuidLow: 16442741246488555586
+      m_GuidHigh: 15836414985358248344
     m_Size: {x: 0.15, y: 0.15}
     m_SpecifySize: 1
     m_Name: arco
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4997203802879042321
-      m_GuidHigh: 11639757019292704906
-    m_SerializedTextureGuid:
-      m_GuidLow: 17200647127702300786
-      m_GuidHigh: 16647201483031547144
-    m_Size: {x: 0.15, y: 0.15}
-    m_SpecifySize: 1
-    m_Name: meta
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4687764398087862489
-      m_GuidHigh: 15755271021868095628
-    m_SerializedTextureGuid:
-      m_GuidLow: 14957716495901633744
-      m_GuidHigh: 16202741001810530218
-    m_Size: {x: 0.18900001, y: 0.15}
-    m_SpecifySize: 1
-    m_Name: objetoRandom
     m_Texture: {fileID: 0}

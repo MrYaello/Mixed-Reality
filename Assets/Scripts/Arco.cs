@@ -6,7 +6,8 @@ public class Arco : MonoBehaviour
     {
         if (other.CompareTag("MainCamera"))
         {
-            FindObjectOfType<GameManager>().IncrementarPuntos();
+            Debug.Log("La cámara pasó por el arco.");
+            GameManager.Instance.IncrementarPuntos(); // Asegúrate de que GameManager esté configurado como Singleton
         }
     }
 }
