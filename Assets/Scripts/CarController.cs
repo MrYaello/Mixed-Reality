@@ -5,7 +5,6 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     public VirtualJoystick joystick;
-    public WebSocketController webSocketController;
     public string lastCommand = "";
 
     void Start()
@@ -39,7 +38,7 @@ public class CarController : MonoBehaviour
 
         if (command != lastCommand)
         {
-            webSocketController.SendMessage(command);
+            WebSocketController.Instance.SendMessage(command);
             lastCommand = command;
         }
     }

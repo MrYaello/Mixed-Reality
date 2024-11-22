@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcf521dce7f8964fb260530bfb36244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ip: 192.168.1.85
+  ip: 192.168.211.76
   confirmation: {fileID: 331008074}
 --- !u!4 &569035463
 Transform:
@@ -622,21 +622,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2163a73705e679a4997d5aaa21b1c758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &972429690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972429688}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 844.4521, y: 189.73729, z: -26.37925}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  cam: {fileID: 1980685583}
+  _peerViewA: {fileID: 1416637361}
+  _peerViewB: {fileID: 2117164302}
+  _cameraDropdown: {fileID: 1241818691}
+  _connectButton: {fileID: 1452540748}
+  _disconnectButton: {fileID: 1452540747}
 --- !u!1 &987815556
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +909,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d19da1eb5f3fd4ab43e363b46c512f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1613318305
+  _serverIp: 192.168.1.232
+--- !u!4 &1297184927
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1144,7 +1136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 1848608099}
-  webSocketController: {fileID: 569035462}
   lastCommand: 
 --- !u!1 &1980685580
 GameObject:
