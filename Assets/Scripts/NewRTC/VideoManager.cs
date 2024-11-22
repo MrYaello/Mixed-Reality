@@ -19,7 +19,7 @@ namespace WebRTCTutorial
 
         public bool IsConnected => _peerConnection?.ConnectionState == RTCPeerConnectionState.Connecting;
 
-        public void SetActiveCamera(WebCamTexture activeWebCamTexture)
+        public void SetActiveCamera(Texture renderTexture)
         {
             // Remove previous track
             var senders = _peerConnection.GetSenders();
@@ -28,7 +28,7 @@ namespace WebRTCTutorial
                 _peerConnection.RemoveTrack(sender);
             }
 
-            var videoTrack = _camera.CaptureStreamTrack(1280, 720);
+            var videoTrack = new VideoStreamTrack(renderTexture);
             _peerConnection.AddTrack(videoTrack);
             
             Debug.Log("Sender video track was set");

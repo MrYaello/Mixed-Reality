@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 4755b35b590504809a7525fd2109c2e2
   - enabled: 0
     path: Assets/Scenes/PruebaiPhone.unity
     guid: 2d48312a8be34456c95ec4a686922d12
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Client.unity
     guid: 8d57a0995d8415b4a9ab3dd01859943a
   m_configObjects:

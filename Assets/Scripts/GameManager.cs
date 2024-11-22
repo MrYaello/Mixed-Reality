@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text tiempoText; 
     public TMP_Text tiempoFinalText; 
     public GameObject victoriaPanel; 
+    public GameObject restart;
 
     [Header("Game Settings")]
     public int puntosMaximos = 5; 
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     {
         juegoIniciado = false; // Detenemos el cronómetro
         victoriaPanel.SetActive(true);
+        restart.SetActive(true);
 
         int minutos = Mathf.FloorToInt(tiempo / 60);
         int segundos = Mathf.FloorToInt(tiempo % 60);
@@ -91,7 +93,6 @@ public class GameManager : MonoBehaviour
     public void ReiniciarJuego()
     {
         SceneManager.LoadScene("SampleScene");
-
     }
 
     public void IniciarJuego()

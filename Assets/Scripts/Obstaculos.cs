@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Obstaculos : MonoBehaviour
 {
@@ -14,13 +15,20 @@ public class Obstaculos : MonoBehaviour
             Debug.Log("Chocaste contra un obstáculo...");
             ActivarChoque();
             Destroy(gameObject);
-            WebSocketController.Instance.SendMessage("speed:100");
-            WebSocketController.Instance.SendMessage("forward");
         }
     }
 
     private void ActivarChoque()
     {
-        Debug.Log("Choque, vas más lento.");
+        Debug.Log("Turbo activado con éxito.");
+        StartCoroutine(speedDown());
+
+    }
+
+    IEnumerator speedDown()
+    {
+        WebSocketController.Instance.SendMessage("speed:100");
+        yield return new WaitForSeconds(5);
+        WebSocketController.Instance.SendMessage("speed:200");
     }
 }

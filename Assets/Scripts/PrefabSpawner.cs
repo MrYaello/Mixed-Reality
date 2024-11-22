@@ -5,80 +5,60 @@ using UnityEngine.XR.ARFoundation;
 public class PrefabSpawner : MonoBehaviour
 {
     public ARTrackedImageManager trackedImageManager;
-    public List<ImagePrefabPair> imagePrefabPairs;
+    public GameObject prefabToSpawn;
+    public Vector3 rotationOffset = new Vector3 (270, 0, 0);
+    public Vector3 positionOffset = new Vector3(0, 0, -0.04f);
 
-    private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
-
-    [System.Serializable]
-    public struct ImagePrefabPair
+    private void OnEnable()
     {
-        public string imageName;
-        public GameObject prefab;
+        trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
     }
 
-    void OnEnable()
+    private void OnDisable()
     {
-        if (trackedImageManager != null)
-        {
-            trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
-        }
-    }
-
-    void OnDisable()
-    {
-        if (trackedImageManager != null)
-        {
-            trackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
-        }
+        trackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
+        // Cuando una nueva imagen es detectada
         foreach (var trackedImage in args.added)
         {
-            SpawnPrefab(trackedImage);
+            SpawnPrefabWithRotation(trackedImage);
         }
 
+        // Cuando una imagen ya trackeada cambia su estado
         foreach (var trackedImage in args.updated)
         {
-          
+            UpdatePrefabPositionAndRotation(trackedImage);
         }
 
+        // Cuando una imagen deja de ser trackeada (opcional)
         foreach (var trackedImage in args.removed)
         {
-            RemovePrefab(trackedImage);
+            // Opcionalmente destruye objetos relacionados
+            Destroy(trackedImage.transform.GetChild(0)?.gameObject);
         }
     }
 
-    private void SpawnPrefab(ARTrackedImage trackedImage)
+    private void SpawnPrefabWithRotation(ARTrackedImage trackedImage)
     {
-        foreach (var pair in imagePrefabPairs)
-        {
-            if (trackedImage.referenceImage.name == pair.imageName)
-            {
-                GameObject prefabInstance = Instantiate(pair.prefab);
+        // Instancia el prefab como hijo de la imagen trackeada
+        GameObject spawnedPrefab = Instantiate(prefabToSpawn, trackedImage.transform);
 
-                
-                Camera mainCamera = Camera.main;
-                prefabInstance.transform.position = mainCamera.transform.position + mainCamera.transform.forward * 2.0f;
-
-                prefabInstance.transform.rotation = Quaternion.LookRotation(-mainCamera.transform.forward, Vector3.up);
-
-                spawnedPrefabs[trackedImage.referenceImage.name] = prefabInstance;
-
-                Debug.Log($"Prefab {pair.imageName} generado frente a la cámara.");
-                return;
-            }
-        }
+        // Ajusta la posición y rotación del prefab
+        spawnedPrefab.transform.localPosition = positionOffset; // Alineado al centro de la imagen
+        spawnedPrefab.transform.localRotation = Quaternion.Euler(rotationOffset); // Rotado según el offset
     }
 
-    private void RemovePrefab(ARTrackedImage trackedImage)
+    private void UpdatePrefabPositionAndRotation(ARTrackedImage trackedImage)
     {
-        if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name))
+        // Asegúrate de que el prefab siga alineado al trackeo
+        Transform prefab = trackedImage.transform.GetChild(0); // El primer hijo es el prefab
+        if (prefab != null)
         {
-            Destroy(spawnedPrefabs[trackedImage.referenceImage.name]);
-            spawnedPrefabs.Remove(trackedImage.referenceImage.name);
-            Debug.Log($"Prefab {trackedImage.referenceImage.name} eliminado.");
+            prefab.localPosition = positionOffset;
+            prefab.localRotation = Quaternion.Euler(rotationOffset);
         }
     }
 }

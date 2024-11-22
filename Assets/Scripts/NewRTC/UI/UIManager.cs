@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using Unity.WebRTC;
 
 namespace WebRTCTutorial.UI
 {
@@ -99,10 +100,23 @@ namespace WebRTCTutorial.UI
 
         private WebCamTexture _activeCamera;
 
+        private RenderTexture _renderTexture;
+        [SerializeField]
+        private Camera _camera;
+
         private VideoManager _videoManager;
 
         private void SetActiveCamera(int deviceIndex)
         {
+            var gfxType = SystemInfo.graphicsDeviceType;
+            var format = WebRTC.GetSupportedRenderTextureFormat(gfxType);
+            _renderTexture = new RenderTexture(640, 360, 0, format);
+            _renderTexture.Create();
+            if (_camera != null)
+            {
+                _camera.targetTexture = _renderTexture;
+            }
+
             var deviceName = _cameraDropdown.options[deviceIndex].text;
 
             // Stop previous camera capture
@@ -153,10 +167,10 @@ namespace WebRTCTutorial.UI
             }
             
             // Set preview of the local peer
-            _peerViewA.SetVideoTexture(_activeCamera);
+            _peerViewA.SetVideoTexture(_renderTexture);
 
             // Notify Video Manager about new active camera device
-            _videoManager.SetActiveCamera(_activeCamera);
+            _videoManager.SetActiveCamera(_renderTexture);
         }
 
         private void OnRemoteVideoReceived(Texture texture)
