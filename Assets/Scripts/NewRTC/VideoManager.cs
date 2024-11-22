@@ -9,6 +9,8 @@ namespace WebRTCTutorial
 {
     public class VideoManager : MonoBehaviour
     {
+        [SerializeField]
+        public Camera _camera;
         public event Action<Texture> RemoteVideoReceived;
 
         public bool CanConnect
@@ -17,7 +19,7 @@ namespace WebRTCTutorial
 
         public bool IsConnected => _peerConnection?.ConnectionState == RTCPeerConnectionState.Connecting;
 
-        public void SetActiveCamera(Camera cam)
+        public void SetActiveCamera(WebCamTexture activeWebCamTexture)
         {
             // Remove previous track
             var senders = _peerConnection.GetSenders();
@@ -26,7 +28,7 @@ namespace WebRTCTutorial
                 _peerConnection.RemoveTrack(sender);
             }
 
-            var videoTrack = cam.CaptureStreamTrack(1280, 720);
+            var videoTrack = _camera.CaptureStreamTrack(1280, 720);
             _peerConnection.AddTrack(videoTrack);
             
             Debug.Log("Sender video track was set");

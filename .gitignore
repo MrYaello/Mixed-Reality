@@ -47,7 +47,9 @@ ExportedObj/
 *.opendb
 *.VC.db
 
-*.DS_Store
+.DS_Store
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/ProjectSettings.asset.bk
 
 
 # Unity3D generated meta files

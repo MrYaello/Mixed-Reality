@@ -9,7 +9,6 @@ namespace WebRTCTutorial.UI
 {
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] private Camera cam;
 #if UNITY_EDITOR
         // Called by Unity -> https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnValidate.html
         protected void OnValidate()
@@ -157,7 +156,7 @@ namespace WebRTCTutorial.UI
             _peerViewA.SetVideoTexture(_activeCamera);
 
             // Notify Video Manager about new active camera device
-            _videoManager.SetActiveCamera(cam);
+            _videoManager.SetActiveCamera(_activeCamera);
         }
 
         private void OnRemoteVideoReceived(Texture texture)
