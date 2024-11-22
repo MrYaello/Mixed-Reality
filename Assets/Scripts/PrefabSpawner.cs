@@ -39,10 +39,9 @@ public class PrefabSpawner : MonoBehaviour
             SpawnPrefab(trackedImage);
         }
 
-        // Dejamos vacío UpdatePrefab para evitar que el prefab se mueva
         foreach (var trackedImage in args.updated)
         {
-            // Nada aquí, evitamos la actualización continua
+          
         }
 
         foreach (var trackedImage in args.removed)
@@ -59,14 +58,12 @@ public class PrefabSpawner : MonoBehaviour
             {
                 GameObject prefabInstance = Instantiate(pair.prefab);
 
-                // Posicionar frente a la cámara
+                
                 Camera mainCamera = Camera.main;
                 prefabInstance.transform.position = mainCamera.transform.position + mainCamera.transform.forward * 2.0f;
 
-                // Orientar el prefab
                 prefabInstance.transform.rotation = Quaternion.LookRotation(-mainCamera.transform.forward, Vector3.up);
 
-                // Guardar el prefab generado
                 spawnedPrefabs[trackedImage.referenceImage.name] = prefabInstance;
 
                 Debug.Log($"Prefab {pair.imageName} generado frente a la cámara.");

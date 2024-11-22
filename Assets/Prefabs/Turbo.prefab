@@ -149,8 +149,8 @@ GameObject:
   - component: {fileID: 5193225808839877032}
   - component: {fileID: 2636600110967023507}
   - component: {fileID: 4386893637980901712}
-  - component: {fileID: 4891004688155475017}
   - component: {fileID: 3823782714945834920}
+  - component: {fileID: 8383105431458875471}
   m_Layer: 0
   m_Name: Turbo
   m_TagString: Untagged
@@ -168,7 +168,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1303.8099, y: 0.9316181, z: -535.84033}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.17335, y: 0.17335, z: 0.17335}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3403908767119972839}
@@ -215,8 +215,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 8
   objectRotation: {x: 4, y: 5, z: 1}
---- !u!136 &4891004688155475017
-CapsuleCollider:
+--- !u!114 &3823782714945834920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261862481902860421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e5d99639f264deb88a0eb03850be33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8383105431458875471
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -230,23 +242,9 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.5019703
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.116472244, z: 0}
---- !u!114 &3823782714945834920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4261862481902860421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e5d99639f264deb88a0eb03850be33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 1, y: 7.522499, z: 6.7279053}
+  m_Center: {x: 0, y: 0.17969877, z: 0.09490967}

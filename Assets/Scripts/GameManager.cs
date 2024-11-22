@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
         juegoIniciado = false; // Detenemos el cronómetro
         victoriaPanel.SetActive(true);
 
-        // Mostrar tiempo final
         int minutos = Mathf.FloorToInt(tiempo / 60);
         int segundos = Mathf.FloorToInt(tiempo % 60);
         int milisegundos = Mathf.FloorToInt((tiempo * 1000) % 1000);

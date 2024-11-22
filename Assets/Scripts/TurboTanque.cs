@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class TurboTanque : MonoBehaviour
 {
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("Turbo recogido. Activando turbo...");
-            ActivarTurbo(); // Activar lógica del turbo
-            Destroy(gameObject); // Destruir el objeto turbo
+            ActivarTurbo();
+            Destroy(gameObject);
             WebSocketController.Instance.SendMessage("speed:255");
             WebSocketController.Instance.SendMessage("forward");
         }
@@ -16,7 +21,6 @@ public class TurboTanque : MonoBehaviour
 
     private void ActivarTurbo()
     {
-        // Aquí puedes implementar la lógica del turbo
         Debug.Log("Turbo activado con éxito.");
     }
 }
