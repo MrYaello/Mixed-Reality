@@ -4,19 +4,19 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; // Singleton para acceso global
+    public static GameManager Instance; 
 
     [Header("UI Elements")]
-    public TMP_Text puntosText; // Texto para mostrar los puntos
-    public TMP_Text tiempoText; // Texto para mostrar el cronómetro
-    public TMP_Text tiempoFinalText; // Texto para mostrar el tiempo final
-    public GameObject victoriaPanel; // Panel de victoria
+    public TMP_Text puntosText; 
+    public TMP_Text tiempoText; 
+    public TMP_Text tiempoFinalText; 
+    public GameObject victoriaPanel; 
 
     [Header("Game Settings")]
-    public int puntosMaximos = 5; // Puntos necesarios para ganar
-    private int puntos = 0; // Puntos actuales
-    private float tiempo = 0f; // Tiempo transcurrido
-    private bool juegoIniciado = false; // Bandera para saber si el juego está activo
+    public int puntosMaximos = 5; 
+    private int puntos = 0; 
+    private float tiempo = 0f; 
+    private bool juegoIniciado = false; 
 
     void Awake()
     {
@@ -33,10 +33,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        victoriaPanel.SetActive(false); // Asegúrate de que el panel de victoria esté oculto al inicio
+        victoriaPanel.SetActive(false); 
         ActualizarPuntos();
         ActualizarTiempo();
-        tiempoFinalText.text = ""; // Limpia el texto inicial
+        tiempoFinalText.text = ""; 
     }
 
     void Update()
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
         if (puntos >= puntosMaximos)
         {
+            Debug.Log("¡Juego terminado! Has alcanzado el máximo de puntos.");
             FinalizarJuego();
         }
     }
@@ -90,7 +91,8 @@ public class GameManager : MonoBehaviour
 
     public void ReiniciarJuego()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("SampleScene");
+
     }
 
     public void IniciarJuego()

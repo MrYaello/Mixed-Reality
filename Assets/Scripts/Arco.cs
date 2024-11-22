@@ -4,10 +4,11 @@ public class Arco : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MainCamera"))
+        // Detecta si el objeto que pasa tiene el tag "Player"
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("La cámara pasó por el arco.");
-            GameManager.Instance.IncrementarPuntos(); // Asegúrate de que GameManager esté configurado como Singleton
+            Debug.Log("El jugador pasó por el arco.");
+            GameManager.Instance.IncrementarPuntos(); // Incrementar puntos en el GameManager
         }
     }
 }

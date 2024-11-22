@@ -7,19 +7,33 @@ using System.Collections;
 
 public class WebSocketController : MonoBehaviour
 {
+    public static WebSocketController Instance;
     private WebSocket websocket;
     public String ip = "192.168.1.85";
     public GameObject confirmation;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     async void Start()
     {
-        // Inicializar conexión WebSocket
+        // Inicializar conexi?n WebSocket
+        Debug.Log("Trying connection");
         websocket = new WebSocket("ws://" + ip + ":81"); // Cambia a la IP y puerto de tu ESP32
 
         // Eventos de WebSocket
         websocket.OnOpen += () =>
         {
-            Debug.Log("Conexión WebSocket abierta");
+            Debug.Log("Conexi?n WebSocket abierta en " + ip);
             StartCoroutine(ShowConfirmation());
         };
 
@@ -37,7 +51,7 @@ public class WebSocketController : MonoBehaviour
 
         websocket.OnClose += (e) =>
         {
-            Debug.Log("Conexión WebSocket cerrada");
+            Debug.Log("Conexi?n WebSocket cerrada");
         };
 
         // Conectar al servidor
@@ -62,7 +76,7 @@ public class WebSocketController : MonoBehaviour
 
     private async void OnApplicationQuit()
     {
-        // Cerrar la conexión al salir de la aplicación
+        // Cerrar la conexi?n al salir de la aplicaci?n
         if (websocket != null)
         {
             await websocket.Close();

@@ -18,12 +18,12 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5731090988093352241
-      m_GuidHigh: 15253591810777911218
+      m_GuidLow: 5367002564323869678
+      m_GuidHigh: 9948512024489299370
     m_SerializedTextureGuid:
-      m_GuidLow: 16442741246488555586
-      m_GuidHigh: 15836414985358248344
-    m_Size: {x: 0.15, y: 0.15}
+      m_GuidLow: 14141531377995439599
+      m_GuidHigh: 7322303514678181128
+    m_Size: {x: 0.05, y: 0.049833886}
     m_SpecifySize: 1
     m_Name: arco
     m_Texture: {fileID: 0}
